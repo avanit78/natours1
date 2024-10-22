@@ -1,0 +1,8 @@
+extends base
+
+include _reviewCard
+
+block content
+    .card-container
+        each user in users
+                +manageUser(user)

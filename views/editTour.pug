@@ -1,0 +1,72 @@
+extends base
+
+block content
+    main.main
+        .login-form
+            h2.heading-secondary.ma-bt-lg Create Tour
+            form.form.form--tour
+                .form__group
+                    label.form__label(for='name') Tour Name
+                    input#name.form__input(type='text', placeholder='Enter tour name', value='The Gujarat Explorer', required)
+                .form__group
+                    label.form__label(for='slug') Slug
+                    input#slug.form__input(type='text', placeholder='Enter tour slug', value='the-gujarat-explorer', required)
+                .form__group
+                    label.form__label(for='duration') Duration (days)
+                    input#duration.form__input(type='number', placeholder='Enter duration', value='7', required)
+                .form__group
+                    label.form__label(for='maxGroupSize') Max Group Size
+                    input#maxGroupSize.form__input(type='number', placeholder='Enter max group size', value='15', required)
+                .form__group
+                    label.form__label(for='difficulty') Difficulty
+                    select#difficulty.form__input(required)
+                        option(value='easy') Easy
+                        option(value='medium', selected) Medium
+                        option(value='difficult') Difficult
+                .form__group
+                    label.form__label(for='price') Price
+                    input#price.form__input(type='number', placeholder='Enter price', value='497', required)
+                .form__group
+                    label.form__label(for='summary') Summary
+                    textarea#summary.form__input(placeholder='Enter a brief summary', required) Exploring the vibrant culture and stunning landscapes of Gujarat
+                .form__group
+                    label.form__label(for='description') Description
+                    textarea#description.form__input(placeholder='Enter full description', required) Discover the rich heritage and beauty of Gujarat. From historical sites to natural wonders, this tour promises an unforgettable experience filled with adventure and culture. Enjoy local cuisine and immerse yourself in the vibrant traditions of the region.
+                .form__group
+                    label.form__label(for='imageCover') Cover Image
+                    input#imageCover.form__input(type='text', placeholder='Enter cover image URL', value='tour-2-cover.jpg', required)
+                .form__group
+                    label.form__label(for='images') Additional Images
+                    textarea#images.form__input(placeholder='Enter additional images as an array of URLs', required)
+                        | ["tour-2-1.jpg", "tour-2-2.jpg", "tour-2-3.jpg"]
+                .form__group
+                    label.form__label(for='startDates') Start Dates (JSON array)
+                    textarea#startDates.form__input(placeholder='Enter start dates as an array (YYYY-MM-DD)', required)
+                        | ["2024-09-10", "2024-10-15", "2024-11-20"]
+                .form__group
+                    label.form__label(for='startLocation') Start Location (JSON format)
+                    textarea#startLocation.form__input(placeholder='Enter start location details in JSON format', required)
+                        | {
+                        |     "description": "Gujarat, India",
+                        |     "type": "Point",
+                        |     "coordinates": [72.5714, 23.0225],
+                        |     "address": "Sabarmati Ashram, Ahmedabad, GJ 380027, India"
+                        | }
+                .form__group
+                    label.form__label(for='locations') Locations (JSON format)
+                    textarea#locations.form__input(placeholder='Enter locations in JSON format', required)
+                        | [
+                        |     {"type": "Point", "coordinates": [72.5714, 23.0225], "description": "Sabarmati Ashram", "day": 1},
+                        |     {"type": "Point", "coordinates": [69.4643, 23.6280], "description": "Rann of Kutch", "day": 2},
+                        |     {"type": "Point", "coordinates": [70.3576, 21.1151], "description": "Gir National Park", "day": 3},
+                        |     {"type": "Point", "coordinates": [70.4042, 20.1888], "description": "Somnath Temple", "day": 5}
+                        | ]
+                .form__group
+                    label.form__label(for='guides') Guides (JSON format)
+                    textarea#guides.form__input(placeholder='Enter guides as an array of User IDs', required)
+                        | [
+                        |     "5c8a22c62f8fb814b56fa18b",
+                        |     "5c8a1f4e2f8fb814b56fa185"
+                        | ]
+                .form__group
+                    button.btn.btn--green Submit Tour

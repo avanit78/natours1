@@ -1,0 +1,10 @@
+extends base
+
+include _reviewCard
+
+block content
+    each tour in tours
+        .reviews
+            h1= tour.name
+            each review in tour.reviews
+                +manageReview(review)

@@ -1,0 +1,11 @@
+extends base
+
+include _reviewCard
+
+block content
+    .reviews
+        each review in reviews
+            each tour in tours
+                if review.tour.toString() === tour._id.toString()
+                    +reviewCardWithTour(review, tour)
+

@@ -1,0 +1,28 @@
+extends base
+
+block content   
+    main.main 
+        .login-form
+            h2.heading-secondary.ma-bt-lg= `Review on ${tour.name}`
+            form.form.form--review
+                .form__group
+                    label.form__label Rating
+                    .star-rating
+                        input#5-stars(type='radio' name='rating' value='5')
+                        label.star(for='5-stars') &starf;
+                        input#4-stars(type='radio' name='rating' value='4')
+                        label.star(for='4-stars') &starf;
+                        input#3-stars(type='radio' name='rating' value='3')
+                        label.star(for='3-stars') &starf;
+                        input#2-stars(type='radio' name='rating' value='2')
+                        label.star(for='2-stars') &starf;
+                        input#1-star(type='radio'  name='rating' value='1')
+                        label.star(for='1-star') &starf;
+                        input#tourId(type="hidden" name="tourId" value=`${tour.id}`)
+                .form__group
+                    .review-text
+                        label.form__label(for='review') Review:
+                        textarea#review(name='review' rows='4' cols='50' required='')
+                .form__group
+                    button.btn.btn--green Review
+
