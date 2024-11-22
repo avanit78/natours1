@@ -87,7 +87,7 @@ block content
                 p.cta__text= `${tour.duration} days. 1 adventure. Infinite memories. Make it yours today!`
                 //- tour.pug
                 if user
-                    if tourBooked.length === 3
+                    if tourBooked.length === tour.maxGroupSize
                         h1 Tour is booked on every date.
                     else
                         - var hasBooking = bookings && bookings.some(booking => booking.tour.id.toString() === tour.id.toString());

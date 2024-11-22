@@ -1,0 +1,17 @@
+extends base
+
+block content   
+    main.main 
+        .card-container
+            h2.heading-secondary Select Date Range for Bookings
+            form.form.form--dateRange
+                .form__group
+                    label.form__label(for='startDate') Start Date
+                    input#startDate.form__input(type='date', name='startDate', required)
+                .form__group
+                    label.form__label(for='endDate') End Date
+                    input#endDate.form__input(type='date', name='endDate', required)
+                .form__group
+                    button.btn.btn--green Show Bookings
+
+        // Other account settings content here

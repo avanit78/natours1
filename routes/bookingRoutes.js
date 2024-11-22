@@ -18,4 +18,6 @@ router.route('/:id')
 .patch(bookingController.updateBooking)
 .delete(bookingController.deleteBooking)
 
+router.post('/reportTour', authController.protect, authController.restrictTo('admin'), bookingController.getReportTour);
+
 module.exports = router;

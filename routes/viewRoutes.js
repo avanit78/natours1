@@ -18,6 +18,8 @@ router.get('/allBookedTour',authController.protect,authController.restrictTo('ad
 router.get('/allTourReview',authController.protect,authController.restrictTo('admin'), viewsController.getAllTourReview);
 router.get('/allUser',authController.protect,authController.restrictTo('admin'), viewsController.getAllUser);
 router.get('/allTour',authController.protect,authController.restrictTo('admin'), viewsController.getAllTour);
+router.get('/reports',authController.protect,authController.restrictTo('admin'), viewsController.reports);
+router.get('/viewreports',authController.protect,authController.restrictTo('admin'), viewsController.viewreports);
 // router.get('/submit-user-data',authController.protect,viewsController.updateUserData);
 
 module.exports = router;

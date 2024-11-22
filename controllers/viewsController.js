@@ -182,19 +182,35 @@ exports.getAllTour = catchAsync(async(req, res) => {
     })
 })
 
-// exports.updateUserData = catchAsync(async(req,res,next)=>{
-//     const updatedUser = await User.findByIdAndUpdate(req.user.id,{
-//         name: req.body.name,
-//         email: req.body.email
-//     },{
-//         new: true,
-//         runValidators: true
-//     }
-//     );
-//     res.status(200).render('account',{
-//         title: 'Your account',
-//         user: updatedUser
-//     })
-// });
+exports.reports = catchAsync(async(req, res) => {
+
+    res.status(200).render('report', {
+        title: 'Reports',
+    })
+})
+
+exports.viewreports = catchAsync(async (req, res, next) => {
+    try {
+        // Retrieve the data from query params
+        const bookings = JSON.parse(req.query.bookings || '[]');
+        const tours = JSON.parse(req.query.tours || '[]');
+        const users = JSON.parse(req.query.users || '[]');
+
+        // Render the view with the data
+        res.status(200).render('reportTour', {
+            title: 'View Reports',
+            bookings,
+            tours,
+            users
+        });
+    } catch (error) {
+        console.error("Error in viewreports:", error);
+        return next(error);
+    }
+});
+
+
+
+
 
 

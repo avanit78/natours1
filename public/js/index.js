@@ -6,10 +6,12 @@ import {addTour} from './addTour';
 import {signUp} from './signUp';
 import {updateSettings} from './updateSettings';
 import {bookTour} from './stripe';
+import {report} from './report';
 
 //Dom element
 const mapbox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
+const ReportDate = document.querySelector('.form--dateRange');
 const resetTokenForm = document.querySelector('.form--resetPassword');
 const reviewForm = document.querySelector('.form--review');
 const tourForm = document.querySelector('.form--tour');
@@ -43,6 +45,15 @@ loginForm.addEventListener('submit', e => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     login(email,password)
+});
+
+if (ReportDate) 
+ReportDate.addEventListener('submit', e => {
+    e.preventDefault();
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+    
+    report(startDate, endDate)
 });
 
 if(resetTokenForm)
